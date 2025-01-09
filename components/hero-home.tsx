@@ -3,7 +3,6 @@ import Illustrasi from "@/components/illustrasi";
 
 export default function HeroHome() {
   
-
   return (
     <section>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
