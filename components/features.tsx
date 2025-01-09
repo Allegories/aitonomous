@@ -1,11 +1,32 @@
+"use client";
+
 import Image from "next/image";
 import BlurredShapeGray from "@/public/images/blurred-shape-gray.svg";
 import BlurredShape from "@/public/images/blurred-shape.svg";
 import FeaturesImage from "@/public/images/features.png";
+import Partner from "@/components/partner"
+import { useState, useEffect } from 'react';
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css'; // Import CSS untuk zoom
 
-export default function Features() {
+
+export default function Features({ id }) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // Cek jika lebar layar di bawah 768px
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Panggil sekali saat komponen dimuat
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+
   return (
-    <section className="relative">
+    <section id={id} className="relative">
       <div
         className="pointer-events-none absolute left-1/2 top-0 -z-10 -mt-20 -translate-x-1/2"
         aria-hidden="true"
@@ -36,27 +57,37 @@ export default function Features() {
           <div className="mx-auto max-w-3xl pb-4 text-center md:pb-12">
             <div className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-gradient-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-gradient-to-l after:from-transparent after:to-indigo-200/50">
               <span className="inline-flex bg-gradient-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
-                Advanced Controls
+                Fitur
               </span>
             </div>
             <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.200),theme(colors.indigo.200),theme(colors.gray.50),theme(colors.indigo.300),theme(colors.gray.200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
-              Built for modern product teams
+            Solusi AIoT untuk Berbagai Inovasi 
             </h2>
             <p className="text-lg text-indigo-200/65">
-              Open AI reads and understands your files, and with nothing more
-              than a single line of feedback, so you can go further than the
-              speed of thought.
+            Dirancang untuk memberikan keunggulan kompetitif, dan fleksibilitas yang sesuai dengan kebutuhan bisnis Anda.
             </p>
           </div>
           <div className="flex justify-center pb-4 md:pb-12" data-aos="fade-up">
-            <Image
-              className="max-w-none"
-              src={FeaturesImage}
-              width={1104}
-              height={384}
-              alt="Features"
-            />
-          </div>
+      {isMobile ? (
+        <Zoom>
+          <Image
+            className="max-w-none"
+            src={FeaturesImage}
+            width={1104}
+            height={384}
+            alt="Features"
+          />
+        </Zoom>
+      ) : (
+        <Image
+          className="max-w-none"
+          src={FeaturesImage}
+          width={1104}
+          height={384}
+          alt="Features"
+        />
+      )}
+    </div>
           {/* Items */}
           <div className="mx-auto grid max-w-sm gap-12 sm:max-w-none sm:grid-cols-2 md:gap-x-14 md:gap-y-16 lg:grid-cols-3">
             <article>
@@ -73,11 +104,10 @@ export default function Features() {
                 />
               </svg>
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
-                Project Milestones
+              Pemrosesan Real-Time
               </h3>
               <p className="text-indigo-200/65">
-                Track progress across custom flows for your team. Find the right
-                balance for the user, privacy and security.
+              Data diproses langsung di sumber tanpa latensi, mengurangi resiko terhambatnya analisis oleh keterbatasan bandwidth.
               </p>
             </article>
             <article>
@@ -91,11 +121,10 @@ export default function Features() {
                 <path d="M19 6H0v2h17v8H7v-6H5v8h19v-2h-5V6Z" />
               </svg>
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
-                Team Views
+              Akurasi Tinggi
               </h3>
               <p className="text-indigo-200/65">
-                Track progress across custom flows for your team. Find the right
-                balance for the user, privacy and security.
+              Analisa lebih akurat karena pemrosesan terjadi langsung di edge (NVIDIA AI Box).
               </p>
             </article>
             <article>
@@ -112,11 +141,10 @@ export default function Features() {
                 />
               </svg>
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
-                Advanced Search
+              Efisien
               </h3>
               <p className="text-indigo-200/65">
-                Track progress across custom flows for your team. Find the right
-                balance for the user, privacy and security.
+              Mengurangi kebutuhan bandwidth dan biaya pengelolaan data di cloud.
               </p>
             </article>
             <article>
@@ -138,11 +166,10 @@ export default function Features() {
                 <path d="m16.321 2-.5-.866 1.733-1 .5.866A22 22 0 0 1 21 12c0 3.852-1.017 7.636-2.948 10.97l-.502.865-1.73-1.003.501-.865A19.878 19.878 0 0 0 19 12a20 20 0 0 0-2.679-10Z" />
               </svg>
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
-                Strategic Initiatives
+              Skalabilitas
               </h3>
               <p className="text-indigo-200/65">
-                Track progress across custom flows for your team. Find the right
-                balance for the user, privacy and security.
+              Dirancang untuk memenuhi kebutuhan industri Anda, dengan fleksibilitas tinggi untuk integrasi di berbagai sektor.
               </p>
             </article>
             <article>
@@ -159,11 +186,10 @@ export default function Features() {
                 <path d="m7.454 2.891.891-.454L7.437.655l-.891.454a12 12 0 0 0 0 21.382l.89.454.91-1.781-.892-.455a10 10 0 0 1 0-17.818ZM17.456 1.11l-.891-.454-.909 1.782.891.454a10 10 0 0 1 0 17.819l-.89.454.908 1.781.89-.454a12 12 0 0 0 0-21.382Z" />
               </svg>
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
-                Flexible Workflows
+              Integrasi Fleksibel
               </h3>
               <p className="text-indigo-200/65">
-                Track progress across custom flows for your team. Find the right
-                balance for the user, privacy and security.
+              Mendukung integrasi dengan berbagai perangkat keras, dan aplikasi yang sudah Anda gunakan
               </p>
             </article>
             <article>
@@ -180,16 +206,16 @@ export default function Features() {
                 <path d="M19.406 3.844 6.083 20.497.586 15 2 13.586l3.917 3.917L17.844 2.595l1.562 1.25Z" />
               </svg>
               <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
-                Unified Timeline
+              Intuitif
               </h3>
               <p className="text-indigo-200/65">
-                Track progress across custom flows for your team. Find the right
-                balance for the user, privacy and security.
+              Dashboard interaktif dan mudah dipahami yang dirancang untuk memberikan wawasan data secara instan
               </p>
             </article>
           </div>
         </div>
       </div>
+      <Partner />
     </section>
   );
 }
