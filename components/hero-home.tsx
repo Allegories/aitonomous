@@ -1,5 +1,6 @@
 import VideoThumb from "@/public/images/hero-image-01.jpg";
 import Illustrasi from "@/components/illustrasi";
+import React from 'react';
 
 export default function HeroHome() {
   const zStyle: React.CSSProperties = {
