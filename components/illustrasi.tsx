@@ -5,14 +5,11 @@ import IllustrationImage from "@/public/images/ilustrasi-edge-ai.svg";
 
 
 export default function Illustrasi() {
-  const divStyle = {
-    marginTop: '-150px',
-    position: 'relative',
-  };
+
 
   return(
 
-    <div className="flex justify-center -mt-8 pb-4 md:pb-12" data-aos="fade-up" style={divStyle}>
+    <div className="flex relative justify-center -mt-8 pb-4 md:pb-12 mt-[-150px]" data-aos="fade-up">
             <Image
               className="max-w-none"
               src={IllustrationImage}
