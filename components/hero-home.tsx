@@ -2,10 +2,10 @@ import VideoThumb from "@/public/images/hero-image-01.jpg";
 import Illustrasi from "@/components/illustrasi";
 
 export default function HeroHome() {
-  const zStyle = { 
-    position: 'relative', // atau 'relative', 'absolute', 'sticky'
-    zIndex: 1000,
-  } 
+  const zStyle: React.CSSProperties = {
+    position: 'relative', // Use a valid CSS position value
+    zIndex: 1000, // Example value
+  };
 
   return (
     <section>
