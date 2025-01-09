@@ -7,7 +7,7 @@ import PageIllustration from "@/components/page-illustration";
 import Hero from "@/components/hero-home";
 import Workflows from "@/components/workflows";
 import Features from "@/components/features";
-import Testimonials from "@/components/solusiindustri";
+// import Testimonials from "@/components/solusiindustri";
 import Cta from "@/components/cta";
 import Solusiindustri from "@/components/solusiindustri";
 
@@ -16,8 +16,8 @@ export default function Home() {
     <>
       <PageIllustration />
       <Hero />
-      <Features id="fitur"/>
-      <Workflows id="model"/>
+      <Features />
+      <Workflows />
       {/* <Testimonials id="solusi"/> */}
       <Solusiindustri />
       <Cta />

@@ -10,7 +10,7 @@ import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css'; // Import CSS untuk zoom
 
 
-export default function Features({ id }) {
+export default function Features() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function Features({ id }) {
 
 
   return (
-    <section id={id} className="relative">
+    <section id="fitur" className="relative">
       <div
         className="pointer-events-none absolute left-1/2 top-0 -z-10 -mt-20 -translate-x-1/2"
         aria-hidden="true"
