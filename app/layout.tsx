@@ -52,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        
+      <GoogleAnalytics />
       </head>
       
       <body
@@ -62,7 +62,7 @@ export default function RootLayout({
           <Header />
           {children}
         </div>
-        <GoogleAnalytics />
+        
       </body>
     </html>
   );
