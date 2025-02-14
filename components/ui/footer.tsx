@@ -159,7 +159,7 @@ export default function Footer() {
             </div>
             <div className="text-sm">
               <p className="mb-3 text-indigo-200/65 text-center">
-               AI-tonomous © 2025 
+              © PT.AItonomous Inovasi Digital 
                 <span className="text-gray-700"> · </span>
                 <a
                   className="text-indigo-200/65 transition hover:text-indigo-500"
