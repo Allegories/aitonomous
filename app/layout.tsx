@@ -5,6 +5,8 @@ import localFont from "next/font/local";
 
 import Header from "@/components/ui/header";
 import GoogleAnalytics from '@/components/GoogleAnalytics'
+import GoogleTagManager from '@/components/GoogleTagManager'
+import GoogleTagManagerBody from '@/components/GoogleTagManagerBody'
 
 const inter = Inter({
   subsets: ["latin"],
@@ -53,11 +55,13 @@ export default function RootLayout({
     <html lang="en">
       <head>
       <GoogleAnalytics />
+      <GoogleTagManager />
       </head>
       
       <body
         className={`${inter.variable} ${nacelle.variable} bg-gray-950 font-inter text-base text-gray-200 antialiased`}
       >
+        <GoogleTagManagerBody />
         <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
           <Header />
           {children}
